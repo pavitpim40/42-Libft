@@ -1,20 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 21:32:34 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/02/26 21:34:15 by ppimchan         ###   ########.fr       */
+/*   Created: 2022/02/23 14:22:21 by ppimchan          #+#    #+#             */
+/*   Updated: 2022/03/06 21:58:49 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_toupper(int c)
+int	ft_atoi(const char *str)
 {
-	if ((c >= 'a' && c <= 'z'))
-		c = c - 32;
-	return (c);
+	int	i;
+	int	sign;
+	int	res;
+
+	i = 0;
+	res = 0;
+	sign = 1;
+	if (!str)
+		return (0);
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
+		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+		i ++;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = (res * 10) + (str[i] - '0');
+		i ++;
+	}
+	return (sign * res);
 }

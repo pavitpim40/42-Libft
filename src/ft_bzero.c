@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/28 13:16:14 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/02/28 14:29:44 by ppimchan         ###   ########.fr       */
+/*   Created: 2022/03/01 01:49:24 by ppimchan          #+#    #+#             */
+/*   Updated: 2022/03/06 21:51:14 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strchr(const char *s, int c)
+void	ft_bzero(void *s, size_t n)
 {
-	int		i;
+	char	*str;
+	size_t	i;
 
 	i = 0;
-	while (s[i] != (char)c)
+	str = (char *)s;
+	while (i < n)
 	{
-		if (s[i] == '\0')
-			return (0);
-		i ++;
+		str[i] = '\0';
+		i++;
 	}
-	return ((char *)(&s[i]));
 }

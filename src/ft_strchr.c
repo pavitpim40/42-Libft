@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 21:38:35 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/02/26 21:44:38 by ppimchan         ###   ########.fr       */
+/*   Created: 2022/02/28 13:16:14 by ppimchan          #+#    #+#             */
+/*   Updated: 2022/03/06 21:39:33 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+char	*strchr(const char *s, int c)
 {
-	if (c >= 'A' && c <= 'C')
-		c = c + 32;
-	return (c);
+	int		i;
+
+	i = 0;
+	while (s[i] != (char)c)
+	{
+		if (s[i] == '\0')
+			return (0);
+		i ++;
+	}
+	return ((char *)(&s[i]));
 }
