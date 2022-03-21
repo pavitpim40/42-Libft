@@ -6,7 +6,7 @@
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 02:34:51 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/03/18 00:49:56 by ppimchan         ###   ########.fr       */
+/*   Updated: 2022/03/20 14:18:57 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 
 void	*ft_memcpy(void	*dst, const void *src, size_t n)
 {
-	char	*content_dst;
-	char	*content_src;
-	int		i;
-
-	*content_dst = (char *)dst;
-	*content_src = (char *)src;
+	size_t		i;
+	char		*content_dst;
+	char		*content_src;
+	
+	if(!dst && !src)
+		return (0);
+	content_dst = (char *)dst;
+	content_src = (char *)src;
 	i = 0;
 	while (i < n)
 	{

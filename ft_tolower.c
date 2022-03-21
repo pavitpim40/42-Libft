@@ -6,13 +6,15 @@
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:38:35 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/03/06 21:57:27 by ppimchan         ###   ########.fr       */
+/*   Updated: 2022/03/20 14:03:39 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'C')
+	if (c >= 'A' && c <= 'Z')
 		c = c + 32;
 	return (c);
 }

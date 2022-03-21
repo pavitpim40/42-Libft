@@ -6,7 +6,7 @@
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 12:34:23 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/03/17 23:03:09 by ppimchan         ###   ########.fr       */
+/*   Updated: 2022/03/20 15:55:50 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	if (!dst && !src)
 		return (0);
-	if ((size_t)src + len > (size_t)dst)
+	if (((size_t)src < (size_t)dst) && ((size_t)src + len > (size_t)dst))
 	{
 		i = len - 1;
 		while (i < len)

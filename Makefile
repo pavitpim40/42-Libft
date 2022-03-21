@@ -6,7 +6,7 @@
 #    By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/14 12:17:17 by ppimchan          #+#    #+#              #
-#    Updated: 2022/03/14 12:30:32 by ppimchan         ###   ########.fr        #
+#    Updated: 2022/03/22 01:24:42 by ppimchan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,8 @@ MEM_LIBC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp
 LIBC = $(IS_LIBC) $(TO_LIBC) $(STR_LIBC) $(MEM_LIBC)
 
 # part 2
-STR_ADDC = ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c
-PUT_ADDC = ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-ADDC = $(STR_ADDC) $(PUT_ADDC)
+STR_ADDC = ft_substr.c ft_strjoin.c ft_strtrim.c
+ADDC = $(STR_ADDC)
 
 SRCS = $(LIBC) $(ADDC)
 OBJS = $(SRCS:.c=.o)
@@ -39,31 +38,30 @@ BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 all: $(NAME)
 
 bonus: $(NAME) $(BONUS_OBJS)
-ar -rcs $(NAME) $(BONUS_OBJS)
+	ar -rcs $(NAME) $(BONUS_OBJS)
 
 $(NAME): $(OBJS)
-ar -rcs $(NAME) $(OBJS)
-ar -rcs $@ $^
- %.o: %.c
-$(CC) $(CFLAGS) -c $< -o $@
+	ar -rcs $(NAME) $(OBJS)
+# ar -rcs $@ $^
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS)
 fclean: clean
-$(RM) $(NAME)
+	$(RM) $(NAME)
 re: fclean all
-
 mm:
-gcc main.c -L . -lft && valgrind ./a.out
+	gcc main.c -L . -lft && valgrind ./a.out
 m:
-gcc main.c -L . -lft && ./a.out
+	gcc main.c -L . -lft && ./a.out
 check:
-@echo "\n";
-@norminette -R CheckForbiddenSourceHeader ft_*.c *.h;
-@echo "";
-@echo "----------------------";
+	@echo "\n";
+	@norminette -R CheckForbiddenSourceHeader ft_*.c *.h;
+	@echo "";
+	@echo "----------------------";
 rename:
-@sed 's/$(OLD)/$(NEW)/g' $(OLD).c > $(NEW).c
+	@sed 's/$(OLD)/$(NEW)/g' $(OLD).c > $(NEW).c
 so:
-$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-gcc -nostartfiles -shared -o libft.so $(OBJS)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)

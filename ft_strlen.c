@@ -6,9 +6,12 @@
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 01:50:56 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/03/06 21:30:41 by ppimchan         ###   ########.fr       */
+/*   Updated: 2022/03/19 21:39:13 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+#include <stdlib.h>
 
 size_t	ft_strlen(const char *str)
 {
