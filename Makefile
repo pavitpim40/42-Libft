@@ -21,7 +21,7 @@ MEM_LIBC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp
 LIBC = $(IS_LIBC) $(TO_LIBC) $(STR_LIBC) $(MEM_LIBC)
 
 # part 2
-STR_ADDC = ft_substr.c ft_strjoin.c ft_strtrim.c
+STR_ADDC = ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c
 ADDC = $(STR_ADDC)
 
 SRCS = $(LIBC) $(ADDC)
