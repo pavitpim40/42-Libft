@@ -1,3 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+size_t	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -10,9 +22,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
+// #include "libft.h"
+void	ft_bzero(void *s, size_t n)
+{
+	char	*str;
+	size_t	i;
+
+	i = 0;
+	str = (char *)s;
+	while (i < n)
+	{
+		str[i] = '\0';
+		i++;
+	}
+}
+
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(count * size);
+	if (ptr == 0)
+		return (ptr);
+	ft_bzero(ptr, count * size);
+	return (ptr);
+}
+
 
 static  int    write_word(char **array_word, char const *s, char c, size_t len)
 {
@@ -26,23 +62,12 @@ static  int    write_word(char **array_word, char const *s, char c, size_t len)
     i = 0;
     j = 0;
     k = 0;
-    printf("in write_word\n");
     while(k < len)
     {
-        if(s[i] == c){
-            printf("split char here : %c with i = %lu\n", s[i],i);
+        if(s[i] == c)
             i++;
-        }
-            
-        printf("in logic before i = %lu , j = %lu , k = %lu\n",i,j,k);
-        j = i;       
-        while (s[j] != c && s[j] != '\0')
-        {
-            printf("not split char : %c\n", s[i]);
+        while (s[i] != c && s[i] != '\0')
             j++;
-        }
-            
-           printf("in logic after i = %lu , j = %lu , k = %lu\n",i,j,k);    
         word = ft_calloc(j - i + 1,sizeof(char));
         if(word == NULL)
             break;
@@ -52,11 +77,9 @@ static  int    write_word(char **array_word, char const *s, char c, size_t len)
         array_word[k] = word;
         k++;
     }
-    printf("k === %lu\n",k);
     if (k != len)
     {  
         len -= 1;
-          printf("Free \n");
         while (len > 0)
         {
             free(array_word[len]);
@@ -71,11 +94,9 @@ static  int  count_word (char const *s, char c)
 {
     size_t  len;
     size_t  end_word;
-     printf("count_word\n");
+    
     len = 0;
     end_word = 0;
-    if(s[0] == c)
-        s++;
     while (*s)
     {
         if (*s != c && end_word == 1)
@@ -88,8 +109,9 @@ static  int  count_word (char const *s, char c)
 
         s++;
     }
-    printf("NUM WORD BEFORE CALIBRATE %lu\n",len);
-    if (s[ft_strlen(s)] == c)
+    if (s[0] == c)
+        len--;
+    if (s[ft_strlen(s) - 1] == c)
         len--;
     return (len + 1);
 }
@@ -100,13 +122,10 @@ char    **ft_split(char const *s, char c)
     char    **array_word;
 
     num_word = count_word(s, c);
-    printf("num_word = %lu\n",num_word);
-    array_word = malloc((num_word + 1) * sizeof(char *));
+    array_word = malloc(num_word * sizeof(char *));
     if (array_word == NULL)
         return (NULL);
-    printf("After Malloc\n");
     array_word[num_word] = NULL;
-    printf("After Null terminate\n");
     if (write_word(array_word, s, c, num_word) == 1)
         return (NULL);
   
@@ -115,10 +134,6 @@ char    **ft_split(char const *s, char c)
 
 int main()
 {
-    char    **array_word;
-    char    *string = "-XXXXXX-AAAAA-BBBBBB";
-    array_word = ft_split(string,'-');
-    for (int i = 0; i < 3; i++)
-        printf("%s\n", array_word[i]);
-    return (0);
+    printf("%d", count_word("XXX-XXXX-XXXX",'-'));
+    return(0);
 }
