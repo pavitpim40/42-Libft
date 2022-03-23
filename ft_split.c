@@ -6,7 +6,7 @@
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 13:03:38 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/03/23 13:03:43 by ppimchan         ###   ########.fr       */
+/*   Updated: 2022/03/23 20:12:18 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static  int    write_word(char **array_word, char const *s, char c, size_t len)
     k = 0;
     while(k < len)
     {
-        if(s[i] == c)
+        while(s[i] == c)
             i++;
         j = i;       
         while (s[j] != c && s[j] != '\0')
@@ -59,9 +59,9 @@ static  int  count_word (char const *s, char c)
     size_t  end_word;
     len = 0;
     end_word = 0;
-    if(s[0] == c)
+    while(s[0] == c)
         s++;
-    while (*s)
+    while (*s != '\0')
     {
         if (*s != c && end_word == 1)
         {
