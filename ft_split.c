@@ -12,25 +12,6 @@
 
 #include "libft.h"
 
-static  size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	srcsize;
-	size_t	i;
-
-	srcsize = ft_strlen(src);
-	i = 0;
-	if (dstsize != 0)
-	{
-		while (src[i] != 0 && i < (dstsize - 1))
-		{
-			dst[i] = src[i];
-			i ++;
-		}
-		dst[i] = 0;
-	}
-	return (srcsize);
-}
-
 static  int    write_word(char **array_word, char const *s, char c, size_t len)
 {
     // if sucess return (0)
@@ -49,9 +30,14 @@ static  int    write_word(char **array_word, char const *s, char c, size_t len)
             i++;
         while (s[i] != c && s[i] != '\0')
             j++;
-        word = ft_calloc(sizeof(char)*(j - i),1);
+        word = ft_calloc(j - i + 1,sizeof(char));
         if(word == NULL)
             break;
+        j = 0;
+        while(s[i] != c && s[i] != '\0')
+            word[j++] = s[i++];
+        array_word[k] = word;
+        k++;
     }
     if (k != len)
     {  
@@ -63,7 +49,6 @@ static  int    write_word(char **array_word, char const *s, char c, size_t len)
         }
         return (1);       
     }
-    
     return (0);
 }
 
@@ -79,7 +64,7 @@ static  int  count_word (char const *s, char c)
         if (*s != c && end_word == 1)
         {
             len++;
-            end_word == 0;
+            end_word = 0;
         }
         else if (*s == c && end_word == 0)
             end_word = 1;
@@ -100,7 +85,7 @@ char    **ft_split(char const *s, char c)
     size_t  j;
     char    **array_word;
 
-    num_word = const_word(s, c);
+    num_word = count_word(s, c);
     array_word = malloc(num_word * sizeof(char *));
     if (array_word == NULL)
         return (NULL);
