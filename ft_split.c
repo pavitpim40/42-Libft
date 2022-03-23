@@ -81,8 +81,6 @@ static  int  count_word (char const *s, char c)
 char    **ft_split(char const *s, char c)
 {
     size_t  num_word;
-    size_t  i;
-    size_t  j;
     char    **array_word;
 
     num_word = count_word(s, c);
