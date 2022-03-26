@@ -10,9 +10,44 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+// #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
+size_t	ft_strlen(const char *str)
+{
+	int	i;
+    
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+
+void	ft_bzero(void *s, size_t n)
+{
+	char	*str;
+	size_t	i;
+
+	i = 0;
+	str = (char *)s;
+	while (i < n)
+	{
+		str[i] = '\0';
+		i++;
+	}
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(count * size);
+	if (ptr == 0)
+		return (ptr);
+	ft_bzero(ptr, count * size);
+	return (ptr);
+}
 
 static  int    write_word(char **array_word, char const *s, char c, size_t len)
 {
