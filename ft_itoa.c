@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-static int ft_intlen (int nb)
+static size_t ft_intlen (size_t nb)
 {
-	int len;
-	int i;
+	size_t len;
+	size_t i;
 
 	len = 0;
 	i = nb;
