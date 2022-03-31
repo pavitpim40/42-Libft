@@ -42,12 +42,12 @@ static int ft_intlen (long nb)
 {
 	int	size;
 	size = 0;
-	while (nb >= 10)
+	while (nb > 0)
 	{
 		nb /= 10;
 		++size;
 	}
-	return (size + 1);
+	return (size);
 }
 
 
@@ -66,34 +66,45 @@ static int ft_power (int nb, int power)
 	return (result);
 }
 
+static char	*ft_write(char *str, long nbr, int sign, int len)
+{
+	int	i;
+
+	i = 0;
+	if (sign < 0)
+	{
+		str[i++] = '-';
+		len-- ;
+	}
+	while (len--)
+	{
+		str[i++] = (nbr / ft_power(10, len)) + '0';
+		nbr = nbr  % ft_power(10, len);
+	}
+	return (str);
+}
+
 char	*ft_itoa(int nb)
 {
 	char	*str;
-	int len;
-	size_t	i;
+	int		len;
 	int		sign;
+	long	nbr;
 
 	len = 0;
-	i = 0;
 	sign = 1;
 	if (nb < 0)
 	{
 		sign = -1;
 		len = 1;
 	}
-	len += ft_intlen((long)nb*sign);
-	if (!(str = ft_calloc(len + 1, sizeof(char))))
+		nbr = (long)nb * (long)sign;
+	len += ft_intlen (nbr);
+	str = ft_calloc(len + 1, sizeof(char));
+	if (!str)
 		return (NULL);
-	if (nb < 0){
-		str[i++] = '-';
-		len-- ;
-	}
-	while (len--)
-	{
-		str[i++] = ((long)nb * sign / ft_power(10, len)) + '0';
-		nb = nb % ft_power(10, len);
-	}
-	return (str);
+	printf("in ITOA %ld \n", nbr);
+	return (ft_write(str, nbr, sign, len));
 }
 
 int main ()

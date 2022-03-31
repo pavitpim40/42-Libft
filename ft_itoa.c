@@ -12,20 +12,20 @@
 
 #include "libft.h"
 
-static int	ft_intlen(long nb)
+static int	ft_intlen(long nbr)
 {
 	int	size;
 
 	size = 0;
-	while (nb >= 10)
+	while (nbr > 0)
 	{
-		nb /= 10;
+		nbr /= 10;
 		++size;
 	}
-	return (size + 1);
+	return (size);
 }
 
-static int	ft_power(int nb, int power)
+static int	ft_power(int base, int power)
 {
 	int	i;
 	int	result;
@@ -34,26 +34,26 @@ static int	ft_power(int nb, int power)
 	result = 1;
 	while (i < power)
 	{
-		result = result * nb;
+		result = result * base;
 		i++;
 	}
 	return (result);
 }
 
-static char	*ft_write(char *str, int nbr, int sign, int len)
+static char	*ft_write(char *str, long nbr, int sign, int len)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	if (nbr < 0)
+	if (sign < 0)
 	{
 		str[i++] = '-';
 		len-- ;
 	}
 	while (len--)
 	{
-		str[i++] = (nbr * sign / ft_power(10, len)) + '0';
-		nbr = nbr % ft_power(10, len);
+		str[i++] = (nbr / ft_power(10, len)) + '0';
+		nbr = nbr  % ft_power(10, len);
 	}
 	return (str);
 }
@@ -72,10 +72,11 @@ char	*ft_itoa(int nb)
 		sign = -1;
 		len = 1;
 	}
-	nbr = nb * sign;
+	nbr = (long)nb * (long)sign;
 	len += ft_intlen (nbr);
 	str = ft_calloc(len + 1, sizeof(char));
 	if (!str)
 		return (NULL);
-	return (ft_write(str, nb, sign, len));
+	return (ft_write(str, nbr, sign, len));
 }
+
