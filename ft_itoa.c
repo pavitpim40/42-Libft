@@ -6,7 +6,7 @@
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 00:07:47 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/03/31 11:25:01 by ppimchan         ###   ########.fr       */
+/*   Updated: 2022/03/31 13:52:36 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ static int	ft_intlen(long nbr)
 	int	size;
 
 	size = 0;
-	while (nbr > 0)
+	while (nbr >= 10)
 	{
 		nbr /= 10;
 		++size;
 	}
-	return (size);
+	return (size + 1);
 }
 
 static int	ft_power(int base, int power)
@@ -53,7 +53,7 @@ static char	*ft_write(char *str, long nbr, int sign, int len)
 	while (len--)
 	{
 		str[i++] = (nbr / ft_power(10, len)) + '0';
-		nbr = nbr  % ft_power(10, len);
+		nbr = nbr % ft_power(10, len);
 	}
 	return (str);
 }
@@ -79,4 +79,3 @@ char	*ft_itoa(int nb)
 		return (NULL);
 	return (ft_write(str, nbr, sign, len));
 }
-
