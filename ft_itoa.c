@@ -11,24 +11,16 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-static size_t ft_intlen (size_t nb)
+static int ft_intlen (long nb)
 {
-	size_t len;
-	size_t i;
-
-	len = 0;
-	i = nb;
-	if (nb < 0)
+	int	size;
+	size = 0;
+	while (nb >= 10)
 	{
-		len++;
-		i = -nb;
+		nb /= 10;
+		++size;
 	}
-	while (i > 0)
-	{
-		i = i / 10;
-		len++;
-	}
-	return (len);
+	return (size + 1);
 }
 
 static int ft_power (int nb, int power)
