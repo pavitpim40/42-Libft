@@ -90,7 +90,7 @@ char	*ft_itoa(int nb)
 	}
 	while (len--)
 	{
-		str[i++] = (nb*sign / ft_power(10, len)) + '0';
+		str[i++] = ( (long)nb * sign / ft_power(10, len)) + '0';
 		nb = nb % ft_power(10, len);
 	}
 	return (str);
@@ -100,6 +100,6 @@ int main ()
 {
 
 	// printf("## %u\n", ft_intlen(-214));
-	printf("%s", ft_itoa(-526));
+	printf("%s", ft_itoa(-2147483648));
 	return (0);
 }
