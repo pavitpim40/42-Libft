@@ -90,7 +90,7 @@ char	*ft_itoa(int nb)
 	}
 	while (len--)
 	{
-		str[i++] = ( (long)nb * sign / ft_power(10, len)) + '0';
+		str[i++] = ((long)nb * sign / ft_power(10, len)) + '0';
 		nb = nb % ft_power(10, len);
 	}
 	return (str);
