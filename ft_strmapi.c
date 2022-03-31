@@ -13,7 +13,7 @@ char *ft_strnew(size_t size)
 char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char *new_str;
-	int i;
+	unsigned int i;
 
 	if (!s)
 		return (NULL);
