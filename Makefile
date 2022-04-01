@@ -6,7 +6,7 @@
 #    By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/14 12:17:17 by ppimchan          #+#    #+#              #
-#    Updated: 2022/03/22 01:24:42 by ppimchan         ###   ########.fr        #
+#    Updated: 2022/04/01 15:48:38 by ppimchan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ NAME = libft.a
 RM = rm -rf
 
 # bonus part
-BONUS_ADDC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+BONUS_ADDC = ft_lstnew.c
 BONUS_SRCS = $(BONUS_ADDC)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 

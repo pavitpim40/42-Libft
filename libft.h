@@ -6,7 +6,7 @@
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 21:18:46 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/03/22 01:31:16 by ppimchan         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:41:22 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_list
 {
     void    *content;
     struct  s_list *next;
-}   t_list;
+}   		t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -59,6 +59,6 @@ void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t n);
 
-t_list *ft_lstnew(void *content);
+t_list	*ft_lstnew(void *content);
 
 #endif
