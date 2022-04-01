@@ -21,8 +21,9 @@ MEM_LIBC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp
 LIBC = $(IS_LIBC) $(TO_LIBC) $(STR_LIBC) $(MEM_LIBC)
 
 # part 2
-STR_ADDC = ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-ADDC = $(STR_ADDC)
+STR_ADDC = ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c
+PUT_ADDC = ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+ADDC = $(STR_ADDC) $(PUT_ADDC)
 
 SRCS = $(LIBC) $(ADDC)
 OBJS = $(SRCS:.c=.o)
@@ -47,10 +48,11 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 fclean: clean
 	$(RM) $(NAME)
 re: fclean all
+
 mm:
 	gcc main.c -L . -lft && valgrind ./a.out
 m:
