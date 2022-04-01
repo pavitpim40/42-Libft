@@ -6,7 +6,7 @@
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 19:02:07 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/03/21 23:25:52 by ppimchan         ###   ########.fr       */
+/*   Updated: 2022/04/01 14:01:16 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len2;
 
 	i = 0;
+	if (!s1 || !s2)
+		return (0);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	res = malloc(sizeof(char) * (len1 + len2 + 1));

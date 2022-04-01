@@ -6,7 +6,7 @@
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 13:03:38 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/03/23 21:15:46 by ppimchan         ###   ########.fr       */
+/*   Updated: 2022/04/01 14:17:23 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ char	**ft_split(char const *s, char c)
 	size_t	num_word;
 	char	**array_word;
 
+	if (!s)
+		return (NULL);
 	num_word = count_word(s, c);
 	array_word = malloc((num_word + 1) * sizeof(char *));
 	if (array_word == NULL)
