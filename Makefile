@@ -32,7 +32,7 @@ NAME = libft.a
 RM = rm -rf
 
 # bonus part
-BONUS_ADDC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c
+BONUS_ADDC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter. ft_lstmap.c
 BONUS_SRCS = $(BONUS_ADDC)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
