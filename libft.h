@@ -60,5 +60,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t n);
 
 t_list	*ft_lstnew(void *content);
+void    ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif
