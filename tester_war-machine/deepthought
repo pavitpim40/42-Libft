@@ -3,7 +3,7 @@ $> hostname; uname -msr
 z3t1c1.42bangkok.com
 Darwin 19.6.0 x86_64
 $> date
-Sun Apr 10 00:47:36 +07 2022
+Sun Apr 10 12:34:38 +07 2022
 $> gcc --version
 Apple clang version 12.0.0 (clang-1200.0.32.28)
 Target: x86_64-apple-darwin19.6.0
@@ -17,47 +17,6 @@ InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault
 
 = libft.h=======================================================================
 $> norminette libft.h | grep -E '(Error|Warning)'
-/Users/ppimchan/libft/tester_war-machine/dirlibft/libft.h: Error!
-Error: TOO_FEW_TAB          (line:  21, col:   1):	Missing tabs for indent level
-Error: SPACE_REPLACE_TAB    (line:  21, col:   5):	Found space when expecting tab
-Error: CONSECUTIVE_SPC      (line:  21, col:   9):	Two or more consecutives spaces
-Error: SPACE_REPLACE_TAB    (line:  21, col:   9):	Found space when expecting tab
-Error: TOO_FEW_TAB          (line:  22, col:   1):	Missing tabs for indent level
-Error: SPACE_REPLACE_TAB    (line:  22, col:   5):	Found space when expecting tab
-Error: CONSECUTIVE_SPC      (line:  22, col:  11):	Two or more consecutives spaces
-Error: SPACE_REPLACE_TAB    (line:  22, col:  19):	Found space when expecting tab
-Error: MISALIGNED_VAR_DECL  (line:  22, col:  20):	Misaligned variable declaration
-Error: CONSECUTIVE_SPC      (line:  23, col:   2):	Two or more consecutives spaces
-Error: MIXED_SPACE_TAB      (line:  23, col:   4):	Mixed spaces and tabs
-Error: SPACE_REPLACE_TAB    (line:  23, col:   4):	Found space when expecting tab
-Error: CONSECUTIVE_SPC      (line:  48, col:   5):	Two or more consecutives spaces
-Error: SPACE_REPLACE_TAB    (line:  48, col:   5):	Found space when expecting tab
-Error: CONSECUTIVE_NEWLINES (line:  50, col:   1):	Consecutive newlines
-Error: SPC_AFTER_OPERATOR   (line:  54, col:  29):	missing space after operator
-Error: CONSECUTIVE_SPC      (line:  55, col:   5):	Two or more consecutives spaces
-Error: SPACE_REPLACE_TAB    (line:  55, col:   5):	Found space when expecting tab
-Error: CONSECUTIVE_SPC      (line:  56, col:   5):	Two or more consecutives spaces
-Error: SPACE_REPLACE_TAB    (line:  56, col:   5):	Found space when expecting tab
-Error: CONSECUTIVE_SPC      (line:  57, col:   5):	Two or more consecutives spaces
-Error: SPACE_REPLACE_TAB    (line:  57, col:   5):	Found space when expecting tab
-Error: MISALIGNED_FUNC_DECL (line:  63, col:   5):	Misaligned function declaration
-Error: CONSECUTIVE_SPC      (line:  66, col:   5):	Two or more consecutives spaces
-Error: SPACE_REPLACE_TAB    (line:  66, col:   5):	Found space when expecting tab
-Error: CONSECUTIVE_SPC      (line:  67, col:   5):	Two or more consecutives spaces
-Error: SPACE_REPLACE_TAB    (line:  67, col:   5):	Found space when expecting tab
-Error: CONSECUTIVE_SPC      (line:  68, col:   5):	Two or more consecutives spaces
-Error: SPACE_REPLACE_TAB    (line:  68, col:   5):	Found space when expecting tab
-Error: CONSECUTIVE_SPC      (line:  69, col:   5):	Two or more consecutives spaces
-Error: SPACE_REPLACE_TAB    (line:  69, col:   5):	Found space when expecting tab
-Error: CONSECUTIVE_SPC      (line:  70, col:   5):	Two or more consecutives spaces
-Error: SPACE_REPLACE_TAB    (line:  70, col:   5):	Found space when expecting tab
-Error: CONSECUTIVE_SPC      (line:  72, col:   4):	Two or more consecutives spaces
-Error: SPACE_REPLACE_TAB    (line:  72, col:   4):	Found space when expecting tab
-Error: CONSECUTIVE_SPC      (line:  73, col:   7):	Two or more consecutives spaces
-Error: SPACE_REPLACE_TAB    (line:  73, col:   7):	Found space when expecting tab
-Error: CONSECUTIVE_SPC      (line:  74, col:   7):	Two or more consecutives spaces
-Error: SPACE_REPLACE_TAB    (line:  74, col:   7):	Found space when expecting tab
-Norme check failed
 
 = Compiling libft ==============================================================
 $> make re
@@ -147,7 +106,7 @@ gcc -Wall -Werror -Wextra -c ft_lstmap.c -o ft_lstmap.o
 ar -rcs libft.a ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o
 
 $> ls -la libft.a
--rw-r--r--  1 ppimchan  2022_bangkok  40416 Apr 10 00:47 /Users/ppimchan/libft/tester_war-machine/dirlibft/libft.a
+-rw-r--r--  1 ppimchan  2022_bangkok  40384 Apr 10 12:34 /Users/ppimchan/libft/tester_war-machine/dirlibft/libft.a
 
 = Part1_functions ==============================================================
 

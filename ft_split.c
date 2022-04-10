@@ -6,7 +6,7 @@
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 13:03:38 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/04/10 12:16:25 by ppimchan         ###   ########.fr       */
+/*   Updated: 2022/04/10 12:22:22 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static	int	count_word(char const *s, char c)
 		return (0);
 	while (*s == c)
 		s++;
-	if(!*s)
+	if (!*s)
 		return (0);
 	while (*s != '\0')
 	{
@@ -78,9 +78,7 @@ static	int	count_word(char const *s, char c)
 			end_word = 0;
 		}
 		else if (*s == c && end_word == 0)
-		{
 			end_word = 1;
-		}
 		s++;
 	}
 	if (s[ft_strlen(s)] == c && c != '\0')
