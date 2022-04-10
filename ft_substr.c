@@ -9,9 +9,8 @@
 /*   Updated: 2022/03/21 19:22:13 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
