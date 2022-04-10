@@ -6,7 +6,7 @@
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 13:03:38 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/04/01 14:17:23 by ppimchan         ###   ########.fr       */
+/*   Updated: 2022/04/10 12:16:25 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static	int	should_free_mem(char **array_word, size_t k, size_t len)
 			free(array_word[len]);
 			len--;
 		}
+		free(array_word);
 		return (1);
 	}
 	return (0);
@@ -63,8 +64,12 @@ static	int	count_word(char const *s, char c)
 
 	len = 0;
 	end_word = 0;
+	if (!*s)
+		return (0);
 	while (*s == c)
 		s++;
+	if(!*s)
+		return (0);
 	while (*s != '\0')
 	{
 		if (*s != c && end_word == 1)
@@ -78,7 +83,7 @@ static	int	count_word(char const *s, char c)
 		}
 		s++;
 	}
-	if (s[ft_strlen(s)] == c)
+	if (s[ft_strlen(s)] == c && c != '\0')
 		len--;
 	return (len + 1);
 }
