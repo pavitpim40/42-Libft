@@ -6,7 +6,7 @@
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 00:00:16 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/03/22 01:27:51 by ppimchan         ###   ########.fr       */
+/*   Updated: 2022/04/10 11:58:03 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
+	if (size > 65535)
+		return (NULL);
 	ptr = malloc(count * size);
 	if (ptr == 0)
 		return (ptr);
