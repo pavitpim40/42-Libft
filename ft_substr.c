@@ -6,7 +6,7 @@
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 15:57:21 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/03/21 19:22:13 by ppimchan         ###   ########.fr       */
+/*   Updated: 2022/04/13 20:49:54 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
-	size_t	i;
 	size_t	s_len;
 	size_t	sub_len;
 
