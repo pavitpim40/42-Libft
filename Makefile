@@ -44,7 +44,7 @@ all: $(NAME)
 bonus: $(NAME) $(BONUS_OBJS)
 	ar -rcs $(NAME) $(BONUS_OBJS)
 
-# clean & re
+# clean & re 
 clean:
 	$(RM) $(OBJS) $(BONUS_OBJS)
 
@@ -53,4 +53,10 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : all clean fclean re
+# norm
+check:
+	@echo "\n";
+	@norminette -R CheckForbiddenSourceHeader ft_*.c *.h;
+	@echo "----------------------";
+
+.PHONY : all clean fclean re check
