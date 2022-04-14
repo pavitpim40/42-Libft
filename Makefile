@@ -19,13 +19,13 @@ ADDC_TO_MEM = ft_itoa.c
 ADDC_PUT = ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 ADDC = ${ADDC_STR_MEM} ${ADDC_STR_MEM_ITER} ${ADDC_STR_ITER} ${ADDC_TO_MEM} ${ADDC_PUT}
 
-# bonus part
-BONUS_ADDC = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
-BONUS_SRCS = $(BONUS_ADDC)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
-
 SRCS = $(LIBC) $(ADDC)
 OBJS = $(SRCS:.c=.o)
+
+# bonus part
+BONUS_ADDC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+BONUS_SRCS = $(BONUS_ADDC)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 NAME = libft.a
 RM = rm -rf
