@@ -58,7 +58,7 @@ static char	*ft_write(char *str, long nbr, int sign, int len)
 	return (str);
 }
 
-char	*ft_itoa(int nb)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	int		len;
@@ -67,12 +67,12 @@ char	*ft_itoa(int nb)
 
 	len = 0;
 	sign = 1;
-	if (nb < 0)
+	if (n < 0)
 	{
 		sign = -1;
 		len = 1;
 	}
-	nbr = (long)nb * (long)sign;
+	nbr = (long)n * (long)sign;
 	len += ft_intlen (nbr);
 	str = ft_calloc(len + 1, sizeof(char));
 	if (!str)
