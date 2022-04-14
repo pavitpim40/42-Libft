@@ -41,7 +41,7 @@ $(NAME): $(OBJS)
 # main commands
 all: $(NAME)
 
-bonus: $(NAME) $(BONUS_OBJS)
+bonus: $(BONUS_OBJS)
 	ar -rcs $(NAME) $(BONUS_OBJS)
 
 # clean & re 
