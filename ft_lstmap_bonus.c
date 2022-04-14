@@ -1,22 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 01:46:34 by ppimchan          #+#    #+#             */
-/*   Updated: 2022/04/03 01:46:40 by ppimchan         ###   ########.fr       */
+/*   Created: 2022/04/03 01:47:25 by ppimchan          #+#    #+#             */
+/*   Updated: 2022/04/03 01:47:38 by ppimchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*))
 {
-	if (lst == NULL)
+	t_list	*new_lst;
+	t_list	*tmp;
+
+	if (!lst)
 		return (NULL);
-	while (lst->next != NULL)
+	new_lst = ft_lstnew(f(lst->content));
+	if (!new_lst)
+		return (NULL);
+	tmp = new_lst;
+	lst = lst->next;
+	while (lst)
+	{
+		tmp->next = ft_lstnew(f(lst->content));
+		if (!tmp->next)
+		{
+			ft_lstclear(&new_lst, del);
+			return (NULL);
+		}
+		tmp = tmp->next;
 		lst = lst->next;
-	return (lst);
+	}
+	return (new_lst);
 }

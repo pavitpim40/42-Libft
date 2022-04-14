@@ -1,29 +1,28 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ppimchan <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/14 12:17:17 by ppimchan          #+#    #+#              #
-#    Updated: 2022/04/01 15:48:38 by ppimchan         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra
 
-# part 1
-IS_LIBC = ft_isalnum.c ft_isascii.c ft_isprint.c ft_isdigit.c ft_isalpha.c
-TO_LIBC = ft_toupper.c ft_tolower.c ft_atoi.c
-STR_LIBC = ft_strchr.c ft_strrchr.c ft_strlen.c ft_strncmp.c ft_strlcpy.c ft_strlcat.c ft_strnstr.c ft_strdup.c
-MEM_LIBC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_calloc.c
-LIBC = $(IS_LIBC) $(TO_LIBC) $(STR_LIBC) $(MEM_LIBC)
+# part 1 - Mandatory (LIBC FUNCTIONS)
+LIBC_IS = ft_isalnum.c ft_isascii.c ft_isprint.c ft_isdigit.c ft_isalpha.c
+LIBC_MEM = ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c 
+LIBC_TO = ft_toupper.c ft_tolower.c ft_atoi.c
+LIBC_STR = ft_strchr.c ft_strrchr.c ft_strlen.c ft_strncmp.c ft_strlcpy.c ft_strlcat.c ft_strnstr.c 
+LIBC_STR_MEM = ft_strdup.c ft_calloc.c
+LIBC = ${LIBC_IS} ${LIBC_MEM} ${LIBC_TO} ${LIBC_STR} ${LIBC_STR_MEM}
 
-# part 2
-STR_ADDC = ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c
-PUT_ADDC = ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-ADDC = $(STR_ADDC) $(PUT_ADDC)
+# part 2 - Mandatory (ADDC FUNCTIONS)
+ADDC_STR_MEM = ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c 
+ADDC_STR_MEM_ITER = ft_strmapi.c 
+ADDC_STR_ITER = ft_striteri.c
+ADDC_TO_MEM = ft_itoa.c
+ADDC_PUT = ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+ADDC = ${ADDC_STR_MEM} ${ADDC_STR_MEM_ITER} ${ADDC_STR_ITER} ${ADDC_TO_MEM} ${ADDC_PUT}
+
+# bonus part
+BONUS_ADDC = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
+BONUS_SRCS = $(BONUS_ADDC)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 SRCS = $(LIBC) $(ADDC)
 OBJS = $(SRCS:.c=.o)
@@ -31,39 +30,27 @@ OBJS = $(SRCS:.c=.o)
 NAME = libft.a
 RM = rm -rf
 
-# bonus part
-BONUS_ADDC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-BONUS_SRCS = $(BONUS_ADDC)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+# any file ending in .o depends on the same filename ending in .c
+%.o: %.c
+	$(CC) $(FLAGS) -c $< -o $@
 
+$(NAME): $(OBJS)
+	ar -rcs $(NAME) $(OBJS)
+
+
+# main commands
 all: $(NAME)
 
 bonus: $(NAME) $(BONUS_OBJS)
 	ar -rcs $(NAME) $(BONUS_OBJS)
 
-$(NAME): $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
-# ar -rcs $@ $^
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
+# clean & re
 clean:
 	$(RM) $(OBJS) $(BONUS_OBJS)
+
 fclean: clean
 	$(RM) $(NAME)
+
 re: fclean all
 
-mm:
-	gcc main.c -L . -lft && valgrind ./a.out
-m:
-	gcc main.c -L . -lft && ./a.out
-check:
-	@echo "\n";
-	@norminette -R CheckForbiddenSourceHeader ft_*.c *.h;
-	@echo "";
-	@echo "----------------------";
-rename:
-	@sed 's/$(OLD)/$(NEW)/g' $(OLD).c > $(NEW).c
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+.PHONY : all clean fclean re
