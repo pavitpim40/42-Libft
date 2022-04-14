@@ -39,7 +39,7 @@ $(NAME): $(OBJS)
 # main commands
 all: $(NAME)
 
-bonus: $(BONUS_OBJS)
+bonus: $(NAME) $(BONUS_OBJS)
 	ar -rcs $(NAME) $(BONUS_OBJS)
 
 # clean & re 
